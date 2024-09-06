@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhy8xmv5k7qb"]
+
+[ext_resource type="Texture2D" uid="uid://bh71pd2caa6ja" path="res://art/char.png" id="1_viv12"]
+[ext_resource type="Script" path="res://tower.gd" id="2_hp2q5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e7twv"]
+radius = 114.983
+
+[node name="tower" type="Area2D"]
+collision_mask = 2
+script = ExtResource("2_hp2q5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_viv12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e7twv")
+
+[node name="Fire" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Fire" to="." method="_on_fire_timeout"]

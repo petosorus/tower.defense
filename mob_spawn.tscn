@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cexm4tywa572v"]
+
+[ext_resource type="Script" path="res://mob_spawn.gd" id="1_j18g6"]
+[ext_resource type="PackedScene" uid="uid://dww7hlonwrad" path="res://mob.tscn" id="2_f5ttk"]
+[ext_resource type="PackedScene" uid="uid://bhy8xmv5k7qb" path="res://tower.tscn" id="3_euaos"]
+
+[sub_resource type="Curve2D" id="Curve2D_h6v6h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 216, 171, 0, 0, 0, 0, 819, 172, 0, 0, 0, 0, 819, 347, 0, 0, 0, 0, 710, 415, 0, 0, 0, 0, 648, 302, 0, 0, 0, 0, 555, 413, 0, 0, 0, 0, 452, 313, 0, 0, 0, 0, 365, 409, 0, 0, 0, 0, 215, 312)
+}
+point_count = 9
+
+[node name="Node" type="Node"]
+script = ExtResource("1_j18g6")
+mob_scene = ExtResource("2_f5ttk")
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_h6v6h")
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="tower" parent="." instance=ExtResource("3_euaos")]
+position = Vector2(533, 277)
+
+[node name="tower2" parent="." instance=ExtResource("3_euaos")]
+position = Vector2(692, 272)
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
