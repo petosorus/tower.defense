@@ -1,0 +1,5 @@
+Jeu capitaliste
+La thune rapporte des intérêts, c'est la seule façon d'en gagner.
+On a beaucoup de thunes au départ, assez pour faire énormément de tours, mais pas assez pour gagner.
+
+Les balles coûtent de l'argent ?

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://djjl1uc8txu1n"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_713of"]
+[ext_resource type="Texture2D" uid="uid://dfbjiqhscamt1" path="res://art/bullet.png" id="2_jgyab"]
+
+[sub_resource type="Curve2D" id="Curve2D_04k2u"]
+
+[node name="bullet" type="Node"]
+script = ExtResource("1_713of")
+
+[node name="BulletPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_04k2u")
+
+[node name="PathFollow" type="PathFollow2D" parent="BulletPath"]
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletPath/PathFollow"]
+texture = ExtResource("2_jgyab")
